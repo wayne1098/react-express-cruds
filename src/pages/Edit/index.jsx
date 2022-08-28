@@ -10,6 +10,7 @@ const Edit = () => {
   const { id } = useParams();
 
 
+  
   useEffect(() => {
     // other code
     getProductById();
