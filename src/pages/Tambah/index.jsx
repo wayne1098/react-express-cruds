@@ -57,7 +57,7 @@ const Tambah = () => {
             name="status"
             type="checkbox"
             label="Active"
-            checked
+            // checked
             value={status}
             onChange={(e) => setStatus(e.target.value)}
           />

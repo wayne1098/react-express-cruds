@@ -4,17 +4,31 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 
 const Detail = () => {
+//   const [name, setName] = useState('');
+//   const [price, setPrice] = useState('');
+//   const [stock, setStock] = useState('');
+//   const { id } = useParams();
+
+//   useEffect(() => {
+//     getProductById();
+//   }, []);
+
+//   const getProductById = async () => {
+//     try {
+//     const res = await axios.get(`http://localhost:3003/api/v2/product/${id}`);
+//     setName(res.data.name);
+//     setPrice(res.data.price);
+//     setStock(res.data.stock);
+// } catch (error) {
+//   console.log(error);
+// }
+// };
   const [name, setName] = useState("");
   const [price, setPrice] = useState("");
   const [stock, setStock] = useState(0);
   const { id } = useParams();
 
-//   useEffect(() => {
-//     // other code
-//     getProductById();
- 
-//     // eslint-disable-next-line react-hooks/exhaustive-deps
-//  }, [])
+
 
   useEffect(() => {
     getProductById();

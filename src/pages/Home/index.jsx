@@ -1,20 +1,18 @@
-import { Link } from 'react-router-dom';
+import {  Link } from 'react-router-dom';
 import './index.scss';
 import axios from "axios";
 import { useEffect, useState } from "react";
 
 const Home = () => {
+
+
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
     getProducts();
   }, []);
 
-  // const getProducts = async () => {
-  //   const res = await axios.get('http://localhost:3003/api/v2/product');
-  //   setProducts(res.data);
-  // };
-  
+
   const getProducts = async () => {
     try {
       const res = await axios.get(`http://localhost:3003/api/v2/product`);
@@ -34,7 +32,7 @@ const Home = () => {
   };
 
   const handleSearch = async (e) => {
-    // console.log(e.currentTarget.value);
+    console.log(e.currentTarget.value);
     try {
     const res = await axios.get('http://localhost:3003/api/v2/product');
     console.log(res);

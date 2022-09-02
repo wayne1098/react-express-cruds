@@ -7,6 +7,7 @@ const Edit = () => {
   const [name, setName] = useState("");
   const [price, setPrice] = useState("");
   const [stock, setStock] = useState(0);
+  const [status, setStatus] = useState(false);
   const { id } = useParams();
 
 
@@ -23,6 +24,7 @@ const Edit = () => {
     setName(res.data.name);
     setPrice(res.data.price);
     setStock(res.data.stock);
+    setStatus(res.data.status);
   };
 
   const updateProduct = async (e) => {
@@ -33,6 +35,7 @@ const Edit = () => {
         price,
         stock,
       });
+      alert('succes add');
     } catch (error) {
       console.log(error);
     }
@@ -67,7 +70,9 @@ const Edit = () => {
           <Input name="status" 
           type="checkbox" 
           label="Active" 
-          checked 
+          // checked
+          value={status}
+          onChange={(e) => setStatus(e.target.value)}
           />
           <button type="submit" className="btn btn-primary">
             Simpan
