@@ -2,7 +2,7 @@ import axios from "axios";
 import { useState } from "react";
 import Input from "../../components/Input";
 import "./index.scss";
-
+const port = process.env.PORT || 3003;
 const Tambah = () => {
   const [name, setName] = useState("");
   const [price, setPrice] = useState(0);
@@ -11,7 +11,7 @@ const Tambah = () => {
 
   const addProduct = async (e) => {
     try {
-      await axios.post('http://localhost:3003/api/v2/product', {
+      await axios.post(`http://localhost:${port}/api/v2/product`, {
         name,
         price,
         stock,

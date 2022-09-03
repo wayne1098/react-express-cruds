@@ -2,6 +2,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import Input from "../../components/Input";
+const port = process.env.PORT || 3003;
 
 const Edit = () => {
   const [name, setName] = useState("");
@@ -20,7 +21,7 @@ const Edit = () => {
  }, [])
 
   const getProductById = async () => {
-    const res = await axios.get(`http://localhost:3003/api/v2/product/${id}`);
+    const res = await axios.get(`http://localhost:${port}/api/v2/product/${id}`);
     setName(res.data.name);
     setPrice(res.data.price);
     setStock(res.data.stock);
@@ -30,7 +31,7 @@ const Edit = () => {
   const updateProduct = async (e) => {
     
     try {
-      await axios.put(`http://localhost:3003/api/v2/product/${id}`, {
+      await axios.put(`http://localhost:${port}/api/v2/product/${id}`, {
         name,
         price,
         stock,

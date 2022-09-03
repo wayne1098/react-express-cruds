@@ -2,7 +2,7 @@ import {  Link } from 'react-router-dom';
 import './index.scss';
 import axios from "axios";
 import { useEffect, useState } from "react";
-
+const port = process.env.PORT || 3003;
 const Home = () => {
 
 
@@ -32,7 +32,7 @@ const Home = () => {
 
   const getProducts = async () => {
     try {
-      const res = await axios.get(`http://localhost:3003/api/v2/product`);
+      const res = await axios.get(`http://localhost:${port}/api/v2/product`);
       setProducts(res.data);
     } catch (error) {
       console.log(error);
@@ -40,7 +40,7 @@ const Home = () => {
   };
   const deleteProduct = async (id) => {
     try {
-      await axios.delete(`http://localhost:3003/api/v2/product/${id}`);
+      await axios.delete(`http://localhost:${port}/api/v2/product/${id}`);
       getProducts();
       alert('succes dellete');
     } catch (error) {
