@@ -6,7 +6,24 @@ import { useEffect, useState } from "react";
 const Home = () => {
 
 
+  // const [query, setQuery] = useState('');
   const [products, setProducts] = useState([]);
+
+//   useEffect(() => {
+
+//     const getProducts =  async () => {
+//       try {
+//       const res = await axios(
+//       `http://localhost:3003/api/v2/product?name=${query}`
+//         );
+//       setProducts(res.data);
+//     } catch (error) {
+//       console.log(error);
+//     }
+//   };
+// getProducts();
+// }, [query]);
+
 
   useEffect(() => {
     getProducts();
@@ -31,10 +48,10 @@ const Home = () => {
     }
   };
 
-  const handleSearch = async (e) => {
+  const handlesearch = async (e) => {
     console.log(e.currentTarget.value);
     try {
-    const res = await axios.get('http://localhost:3003/api/v2/product');
+    const res = await axios.get(`http://localhost:3003/api/v2/product`);
     console.log(res);
   } catch (error) {
     console.log(error);
@@ -49,7 +66,8 @@ const Home = () => {
       <div className="search">
         <input
           type="text"
-          onChange={handleSearch}
+          onChange={handlesearch}
+          // onChange={(e) => { setQuery(e.target.value); }}           value={query} 
           placeholder="Masukan kata kunci..."
         />
       </div>

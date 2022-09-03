@@ -35,7 +35,7 @@ const Edit = () => {
         price,
         stock,
       });
-      alert('succes add');
+      alert('succes edit');
     } catch (error) {
       console.log(error);
     }
